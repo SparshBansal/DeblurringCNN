@@ -75,7 +75,7 @@ def convolutional_nn(sess, features , labels ):
     model = Model('CNN' , features)
     
     # define layer_list as tuples of layers where each tuple has values (kernel_size,output_channels)
-    layer_list = [(19,128),(1,320),(1,320),(1,320),(3,128),(1,512),(5,128),(5,128),(3,128),(5,128),(5,128),(1,256),(7,64),(7,3)]
+    layer_list = [(23,128),(1,320),(1,320),(1,320),(1,128),(3,128),(1,512),(5,48),(3,96),(5,3)]
     
     # add conv layers 
     for layer in layer_list[:-1]:

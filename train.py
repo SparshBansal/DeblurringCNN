@@ -24,7 +24,7 @@ TESTING_DATASET_SIZE = 200
 
 # training parameters
 EPOCHS = 50
-BATCH_SIZE = 5
+BATCH_SIZE = 1
 LEARNING_RATE = 0.0001
 
 # Logging Parameters
@@ -117,8 +117,9 @@ def train_neural_network():
     test_feature_filenames , test_label_filenames = get_test_filenames()
     
     # we can also have input summaries written out to tensorboard
-    train_features , train_labels = input_pipeline.get_files(sess,train_feature_filenames,train_label_filenames)
-    test_features , test_labels = input_pipeline.get_files(sess,test_feature_filenames, test_label_filenames)
+    with tf.name_scope('inputs'):
+        train_features , train_labels = input_pipeline.get_files(sess,train_feature_filenames,train_label_filenames)
+        test_features , test_labels = input_pipeline.get_files(sess,test_feature_filenames, test_label_filenames)
     
         
     # get outputs and variable lists 
